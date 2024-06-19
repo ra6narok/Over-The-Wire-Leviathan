@@ -1,0 +1,40 @@
+┌──(ra6narok㉿kali)-[~]
+└─$ sshpass -p 3QJ3TgzHDq ssh leviathan1@leviathan.labs.overthewire.org -p 2223
+                   _            _       _   _                 
+                  | | _____   _(_) __ _| |_| |__   __ _ _ __  
+                  | |/ _ \ \ / / |/ _` | __| '_ \ / _` | '_ \ 
+                  | |  __/\ V /| | (_| | |_| | | | (_| | | | |
+                  |_|\___| \_/ |_|\__,_|\__|_| |_|\__,_|_| |_|
+                
+                                              
+leviathan1@gibson:~$ whoami
+leviathan1
+leviathan1@gibson:~$ ls -la
+total 36
+drwxr-xr-x  2 root       root        4096 Jun 16 02:46 .
+drwxr-xr-x 83 root       root        4096 Jun 16 02:48 ..
+-rw-r--r--  1 root       root         220 Mar 31 08:41 .bash_logout
+-rw-r--r--  1 root       root        3771 Mar 31 08:41 .bashrc
+-r-sr-x---  1 leviathan2 leviathan1 15080 Jun 16 02:46 check
+-rw-r--r--  1 root       root         807 Mar 31 08:41 .profile
+leviathan1@gibson:~$ ./check
+password: 1234
+Wrong password, Good Bye ...
+leviathan1@gibson:~$ ltrace ./check
+__libc_start_main(0x80490ed, 1, 0xffffd494, 0 <unfinished ...>
+printf("password: ")                                                                                                                               = 10
+getchar(0, 0, 0x786573, 0x646f67password: 1234
+)                                                                                                                  = 49
+getchar(0, 49, 0x786573, 0x646f67)                                                                                                                 = 50
+getchar(0, 0x3231, 0x786573, 0x646f67)                                                                                                             = 51
+strcmp("123", "sex")  <-----PASSWORD                                                                                                                               = -1
+puts("Wrong password, Good Bye ..."Wrong password, Good Bye ...
+)                                                                                                               = 29
++++ exited (status 0) +++
+leviathan1@gibson:~$ ./check
+password: sex
+$ ls
+check
+$ cat /etc/leviathan_pass/leviathan2
+NsN1HwFoyN  <----------PASSWORD
+$ 
