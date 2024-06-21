@@ -1,0 +1,67 @@
+┌──(ra6narok㉿kali)-[~]
+└─$ sshpass -p szo7HDB88w ssh leviathan6@leviathan.labs.overthewire.org -p 2223
+                   _            _       _   _                 
+                  | | _____   _(_) __ _| |_| |__   __ _ _ __  
+                  | |/ _ \ \ / / |/ _` | __| '_ \ / _` | '_ \ 
+                  | |  __/\ V /| | (_| | |_| | | | (_| | | | |
+                  |_|\___| \_/ |_|\__,_|\__|_| |_|\__,_|_| |_|
+                                                              
+
+leviathan6@gibson:~$ whoami
+leviathan6
+leviathan6@gibson:~$ ls -la
+total 36
+drwxr-xr-x  2 root       root        4096 Jun 20 04:07 .
+drwxr-xr-x 83 root       root        4096 Jun 20 04:08 ..
+-rw-r--r--  1 root       root         220 Mar 31 08:41 .bash_logout
+-rw-r--r--  1 root       root        3771 Mar 31 08:41 .bashrc
+-r-sr-x---  1 leviathan7 leviathan6 15032 Jun 20 04:07 leviathan6
+-rw-r--r--  1 root       root         807 Mar 31 08:41 .profile
+leviathan6@gibson:~$ ./leviathan6
+usage: ./leviathan6 <4 digit code>
+leviathan6@gibson:~$ ltrace ./leviathan6
+__libc_start_main(0x80490dd, 1, 0xffffd484, 0 <unfinished ...>
+printf("usage: %s <4 digit code>\n", "./leviathan6"usage: ./leviathan6 <4 digit code>
+)                                                                                               = 35
+exit(-1 <no return ...>
++++ exited (status 255) +++
+leviathan6@gibson:~$ for i in {0000..9999} ;do echo $i;./leviathan6 $i;done;
+0000
+Wrong
+0001
+Wrong
+0002
+Wrong
+0003
+Wrong
+0004
+Wrong
+0005
+Wrong
+0006
+Wrong
+0007
+Wrong
+0008
+Wrong
+0009
+Wrong
+0010
+.....
+Wrong
+7119
+Wrong
+7120
+Wrong
+7121
+Wrong
+7122
+Wrong
+7123
+$ whoami
+leviathan7
+$ ls
+leviathan6
+$ cat /etc/leviathan_pass/leviathan7
+qEs5Io5yM8  <---------PASSWORD
+$ 
